@@ -2,3 +2,4 @@
 home-*.png
 play-*.png
 node_modules/
+*.log

@@ -1,0 +1,312 @@
+{
+  "apple": {
+    "file": "assets/audio/words/apple.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/a/app/apple/apple.mp3",
+    "bytes": 4077
+  },
+  "baby": {
+    "file": "assets/audio/words/baby.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/b/bab/baby_/baby.mp3",
+    "bytes": 5037
+  },
+  "bag": {
+    "file": "assets/audio/words/bag.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/b/bag/bag__/bag.mp3",
+    "bytes": 5037
+  },
+  "ball": {
+    "file": "assets/audio/words/ball.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/b/bal/ball_/ball.mp3",
+    "bytes": 4653
+  },
+  "banana": {
+    "file": "assets/audio/words/banana.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/b/ban/banan/banana.mp3",
+    "bytes": 5613
+  },
+  "bed": {
+    "file": "assets/audio/words/bed.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/b/bed/bed__/bed.mp3",
+    "bytes": 4077
+  },
+  "big": {
+    "file": "assets/audio/words/big.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/b/big/big__/big.mp3",
+    "bytes": 3885
+  },
+  "bird": {
+    "file": "assets/audio/words/bird.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/b/bir/bird_/bird.mp3",
+    "bytes": 4461
+  },
+  "blue": {
+    "file": "assets/audio/words/blue.mp3",
+    "source": "http://www.onelook.com/pronounce/macmillan/US/blue-American-English-pronunciation.mp3",
+    "bytes": 2392
+  },
+  "book": {
+    "file": "assets/audio/words/book.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/b/boo/book_/book.mp3",
+    "bytes": 3885
+  },
+  "boy": {
+    "file": "assets/audio/words/boy.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/b/boy/boy__/boy.mp3",
+    "bytes": 4461
+  },
+  "bread": {
+    "file": "assets/audio/words/bread.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/b/bre/bread/bread.mp3",
+    "bytes": 4461
+  },
+  "car": {
+    "file": "assets/audio/words/car.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/c/car/car__/car.mp3",
+    "bytes": 4653
+  },
+  "cat": {
+    "file": "assets/audio/words/cat.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/c/cat/cat__/cat.mp3",
+    "bytes": 4269
+  },
+  "chair": {
+    "file": "assets/audio/words/chair.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/c/cha/chair/chair.mp3",
+    "bytes": 5421
+  },
+  "cup": {
+    "file": "assets/audio/words/cup.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/c/cup/cup__/cup.mp3",
+    "bytes": 4077
+  },
+  "dad": {
+    "file": "assets/audio/words/dad.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/d/dad/dad__/dad.mp3",
+    "bytes": 4845
+  },
+  "dog": {
+    "file": "assets/audio/words/dog.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/d/dog/dog__/dog.mp3",
+    "bytes": 4653
+  },
+  "door": {
+    "file": "assets/audio/words/door.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/d/doo/door_/door.mp3",
+    "bytes": 4461
+  },
+  "drink": {
+    "file": "assets/audio/words/drink.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/d/dri/drink/drink.mp3",
+    "bytes": 4269
+  },
+  "eat": {
+    "file": "assets/audio/words/eat.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/e/eat/eat__/eat.mp3",
+    "bytes": 4653
+  },
+  "egg": {
+    "file": "assets/audio/words/egg.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/e/egg/egg__/egg.mp3",
+    "bytes": 4461
+  },
+  "eyes": {
+    "file": "assets/audio/words/eyes.mp3",
+    "source": "http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/E/1X2K2KFXY7RV3.mp3",
+    "bytes": 16680
+  },
+  "fish": {
+    "file": "assets/audio/words/fish.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/f/fis/fish_/fish.mp3",
+    "bytes": 4269
+  },
+  "five": {
+    "file": "assets/audio/words/five.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/f/fiv/five_/five.mp3",
+    "bytes": 5037
+  },
+  "flower": {
+    "file": "assets/audio/words/flower.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/f/flo/flowe/flower.mp3",
+    "bytes": 5805
+  },
+  "four": {
+    "file": "assets/audio/words/four.mp3",
+    "source": "http://www.onelook.com/pronounce/macmillan/US/four-American-English-pronunciation.mp3",
+    "bytes": 2730
+  },
+  "girl": {
+    "file": "assets/audio/words/girl.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/g/gir/girl_/girl.mp3",
+    "bytes": 5229
+  },
+  "green": {
+    "file": "assets/audio/words/green.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/g/gre/green/green.mp3",
+    "bytes": 6189
+  },
+  "hand": {
+    "file": "assets/audio/words/hand.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/h/han/hand_/hand.mp3",
+    "bytes": 5229
+  },
+  "happy": {
+    "file": "assets/audio/words/happy.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/h/hap/happy/happy.mp3",
+    "bytes": 5229
+  },
+  "hat": {
+    "file": "assets/audio/words/hat.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/h/hat/hat__/hat.mp3",
+    "bytes": 5037
+  },
+  "head": {
+    "file": "assets/audio/words/head.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/h/hea/head_/head.mp3",
+    "bytes": 4653
+  },
+  "house": {
+    "file": "assets/audio/words/house.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/h/hou/house/house.mp3",
+    "bytes": 5613
+  },
+  "jump": {
+    "file": "assets/audio/words/jump.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/j/jum/jump_/jump.mp3",
+    "bytes": 4461
+  },
+  "lamp": {
+    "file": "assets/audio/words/lamp.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/l/lam/lamp_/lamp.mp3",
+    "bytes": 4653
+  },
+  "milk": {
+    "file": "assets/audio/words/milk.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/m/mil/milk_/milk.mp3",
+    "bytes": 5805
+  },
+  "mom": {
+    "file": "assets/audio/words/mom.mp3",
+    "source": "http://www.onelook.com/pronounce/macmillan/US/mom-American-English-pronunciation.mp3",
+    "bytes": 3120
+  },
+  "moon": {
+    "file": "assets/audio/words/moon.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/m/moo/moon_/moon.mp3",
+    "bytes": 6381
+  },
+  "on": {
+    "file": "assets/audio/words/on.mp3",
+    "source": "http://www.onelook.com/pronounce/macmillan/US/on-American-English-pronunciation_32524.mp3",
+    "bytes": 2600
+  },
+  "one": {
+    "file": "assets/audio/words/one.mp3",
+    "source": "http://www.onelook.com/pronounce/macmillan/US/one-American-English-pronunciation.mp3",
+    "bytes": 3016
+  },
+  "park": {
+    "file": "assets/audio/words/park.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/p/par/park_/park.mp3",
+    "bytes": 4461
+  },
+  "rabbit": {
+    "file": "assets/audio/words/rabbit.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/r/rab/rabbi/rabbit.mp3",
+    "bytes": 4269
+  },
+  "read": {
+    "file": "assets/audio/words/read.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/r/rea/read_/read.mp3",
+    "bytes": 5229
+  },
+  "red": {
+    "file": "assets/audio/words/red.mp3",
+    "source": "http://www.onelook.com/pronounce/macmillan/US/red-American-English-pronunciation.mp3",
+    "bytes": 2730
+  },
+  "run": {
+    "file": "assets/audio/words/run.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/r/run/run__/run.mp3",
+    "bytes": 5421
+  },
+  "sad": {
+    "file": "assets/audio/words/sad.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/s/sad/sad__/sad.mp3",
+    "bytes": 6189
+  },
+  "school": {
+    "file": "assets/audio/words/school.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/s/sch/schoo/school.mp3",
+    "bytes": 6189
+  },
+  "shirt": {
+    "file": "assets/audio/words/shirt.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/s/shi/shirt/shirt.mp3",
+    "bytes": 5805
+  },
+  "shoes": {
+    "file": "assets/audio/words/shoes.mp3",
+    "source": "http://s3.amazonaws.com/audio.vocabulary.com/1.0/us/S/1K18D6K45M860.mp3",
+    "bytes": 19599
+  },
+  "sleep": {
+    "file": "assets/audio/words/sleep.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/s/sle/sleep/sleep.mp3",
+    "bytes": 5229
+  },
+  "small": {
+    "file": "assets/audio/words/small.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/s/sma/small/small.mp3",
+    "bytes": 6189
+  },
+  "sun": {
+    "file": "assets/audio/words/sun.mp3",
+    "source": "http://www.onelook.com/pronounce/macmillan/US/sun-American-English-pronunciation.mp3",
+    "bytes": 2886
+  },
+  "table": {
+    "file": "assets/audio/words/table.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/t/tab/table/table.mp3",
+    "bytes": 5037
+  },
+  "three": {
+    "file": "assets/audio/words/three.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/t/thr/three/three.mp3",
+    "bytes": 5421
+  },
+  "toy": {
+    "file": "assets/audio/words/toy.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/t/toy/toy__/toy.mp3",
+    "bytes": 5037
+  },
+  "tree": {
+    "file": "assets/audio/words/tree.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/t/tre/tree_/tree.mp3",
+    "bytes": 5421
+  },
+  "two": {
+    "file": "assets/audio/words/two.mp3",
+    "source": "http://www.onelook.com/pronounce/macmillan/US/two-American-English-pronunciation.mp3",
+    "bytes": 2782
+  },
+  "under": {
+    "file": "assets/audio/words/under.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/u/und/under/under.mp3",
+    "bytes": 5421
+  },
+  "water": {
+    "file": "assets/audio/words/water.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/w/wat/water/water.mp3",
+    "bytes": 5229
+  },
+  "window": {
+    "file": "assets/audio/words/window.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/w/win/windo/window.mp3",
+    "bytes": 5997
+  },
+  "yellow": {
+    "file": "assets/audio/words/yellow.mp3",
+    "source": "http://dictionary.cambridge.org/us/media/english/us_pron/y/yel/yello/yellow.mp3",
+    "bytes": 5037
+  }
+}

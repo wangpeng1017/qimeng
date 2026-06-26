@@ -264,6 +264,14 @@ function renderFinish() {
 
 function renderScene(scene) {
   if (!scene) return "";
+  if (scene.image) {
+    return `
+      <div class="image-scene">
+        <img src="${scene.image}" alt="${scene.label || scene.word || "illustration"}" onerror="this.closest('.image-scene').classList.add('is-missing')" />
+        <div class="fallback-scene">${renderScene({ ...scene, image: "" })}</div>
+      </div>
+    `;
+  }
   if (scene.type === "object") return objectScene(scene);
   if (scene.type === "action") return personScene({ ...scene, mood: "happy", prop: scene.action });
   if (scene.type === "sleep") return sleepScene(scene);
