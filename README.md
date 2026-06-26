@@ -14,7 +14,7 @@ node server.js
 然后访问：
 
 ```text
-http://localhost:3004
+http://localhost:3333
 ```
 
 ## 文件结构
