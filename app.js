@@ -10,16 +10,19 @@ const state = {
   misses: [],
   locked: false,
   startedAt: 0,
-  responseTimes: []
+  responseTimes: [],
+  audio: null
 };
 
 const synth = window.speechSynthesis;
+const assetVersion = "20260626-level1-cn-audio";
 
 function normalizeItems(level) {
   return level.items.map(([sentence, skillTag, answerId, distractorId], index) => ({
     id: `${level.id}-${index + 1}`,
     sentence,
     skillTag,
+    audio: `assets/audio/sentences/level-${level.id}/${String(index + 1).padStart(2, "0")}.mp3?v=${assetVersion}`,
     answerId,
     choices: shuffle([
       { id: answerId, scene: scenes[answerId] },
@@ -64,7 +67,16 @@ function speak(text, rate = 0.86) {
   synth.speak(utterance);
 }
 
+function stopAudio() {
+  if (state.audio) {
+    state.audio.pause();
+    state.audio = null;
+  }
+  if (synth) synth.cancel();
+}
+
 function startLevel(levelId) {
+  stopAudio();
   state.levelId = levelId;
   state.index = 0;
   state.attempts = {};
@@ -79,7 +91,12 @@ function startLevel(levelId) {
 function playCurrent(rate) {
   const item = currentItem();
   state.startedAt = performance.now();
-  speak(item.sentence, rate || 0.86);
+  stopAudio();
+  const audio = new Audio(item.audio);
+  state.audio = audio;
+  audio.playbackRate = rate && rate < 0.8 ? 0.82 : 1;
+  audio.play().catch(() => speak(item.sentence, rate || 0.86));
+  audio.addEventListener("error", () => speak(item.sentence, rate || 0.86), { once: true });
 }
 
 function choose(choiceId) {
@@ -120,7 +137,7 @@ function markChoice(choiceId, status) {
 }
 
 function exitToHome() {
-  if (synth) synth.cancel();
+  stopAudio();
   history.replaceState(null, "", location.pathname);
   setScreen("home");
 }

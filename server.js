@@ -13,6 +13,9 @@ const types = {
   ".png": "image/png",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
+  ".mp3": "audio/mpeg",
+  ".wav": "audio/wav",
+  ".m4a": "audio/mp4",
   ".svg": "image/svg+xml",
   ".ico": "image/x-icon"
 };
@@ -29,13 +32,14 @@ function resolveFile(urlPath) {
 
   if (!filePath.startsWith(root)) return null;
   if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) return filePath;
+  if (path.extname(requested)) return null;
   return path.join(root, "index.html");
 }
 
 const server = http.createServer((req, res) => {
   const filePath = resolveFile(req.url || "/");
   if (!filePath) {
-    send(res, 403, "Forbidden", { "Content-Type": "text/plain; charset=utf-8" });
+    send(res, 404, "Not found", { "Content-Type": "text/plain; charset=utf-8" });
     return;
   }
 
@@ -46,10 +50,9 @@ const server = http.createServer((req, res) => {
     }
 
     const ext = path.extname(filePath);
-    const cache =
-      ext === ".html"
-        ? "no-cache, must-revalidate"
-        : "public, max-age=604800";
+    const cache = [".html", ".css", ".js", ".json"].includes(ext)
+      ? "no-cache, must-revalidate"
+      : "public, max-age=604800";
 
     send(res, 200, content, {
       "Content-Type": types[ext] || "application/octet-stream",
