@@ -443,6 +443,12 @@ p {
   border-radius: 14px;
 }
 
+.image-scene picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .image-scene .fallback-scene {
   display: none;
   width: 100%;

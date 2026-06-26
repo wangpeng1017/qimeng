@@ -201,13 +201,16 @@ Style A 确认样图：
 
 当前图片结构：
 
-- 正式插画：`assets/illustrations/<scene-id>.png`
+- 正式插画源图：`assets/illustrations/<scene-id>.png`
+- 前端加载优化图：`assets/illustrations-webp/<scene-id>.webp`
 - 风格样图：`assets/style-samples/<style-id>/<scene-id>.png`
 - 生成脚本：`scripts/generate-illustrations.mjs`
+- 压缩脚本：`scripts/optimize-illustrations.mjs`
 
 当前状态：
 
 - 已接入真实图片优先展示。
+- 前端优先加载 768px WebP 优化图，PNG 源图作为兼容兜底。
 - 图片缺失时 fallback 到代码生成的 SVG 占位图，页面不会崩。
 - 正式插画目录当前不保留旧风格散图，避免线上混用。
 - Level 1-3 已按 Style A 写实绘本风生成正式插画。
@@ -275,6 +278,7 @@ Style A 确认样图：
 - `npm run fetch:audio`：下载并记录单词音频。
 - `npm run generate:audio`：生成指定 Level 的短句音频，支持 `RATE`、`TEMPO`、`VOICE`。
 - `npm run generate:images`：按场景批量生成插画。
+- `npm run optimize:images`：将正式 PNG 插画批量压缩为前端加载的 WebP。
 - `npm start`：启动静态服务。
 
 部署：

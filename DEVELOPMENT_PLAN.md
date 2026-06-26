@@ -17,6 +17,7 @@
 - 内容先放在本地数据文件，方便快速迭代。
 - 单词音频已下载到 `assets/audio/words/`，来源记录在 `data/audio-sources.json`。
 - Level 1-3 短句音频已生成慢速清晰版固定 MP3，浏览器 Web Speech API 仅作为 fallback。
+- Level 1-3 正式插画已生成 WebP 优化图，前端优先加载压缩图。
 - 每关 15 题，每题 2 张图，答对自动下一题。
 
 ## 技术方案
@@ -27,6 +28,7 @@
 - `styles.css`：Pad 优先的响应式样式。
 - `app.js`：关卡选择、播放语音、答题、复习逻辑。
 - `data/levels.js`：关卡、句子、图片、干扰项、错误标签。
+- `scripts/optimize-illustrations.mjs`：将正式 PNG 批量压缩为 768px WebP。
 
 部署方式：
 

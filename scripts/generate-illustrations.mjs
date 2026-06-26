@@ -42,7 +42,7 @@ function assetFilePath(assetPath) {
 const queue = [];
 
 for (const scene of scenes) {
-  const output = resolve(assetFilePath(scene.image));
+  const output = resolve(assetFilePath(scene.sourceImage || scene.image));
   mkdirSync(dirname(output), { recursive: true });
 
   if (existsSync(output)) {

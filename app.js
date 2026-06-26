@@ -289,7 +289,10 @@ function renderScene(scene) {
   if (scene.image) {
     return `
       <div class="image-scene">
-        <img src="${scene.image}" alt="${scene.label || scene.word || "illustration"}" onerror="this.closest('.image-scene').classList.add('is-missing')" />
+        <picture>
+          <source srcset="${scene.image}" type="image/webp" />
+          <img src="${scene.fallbackImage || scene.image}" alt="${scene.label || scene.word || "illustration"}" onerror="this.closest('.image-scene').classList.add('is-missing')" />
+        </picture>
         <div class="fallback-scene">${renderScene({ ...scene, image: "" })}</div>
       </div>
     `;
