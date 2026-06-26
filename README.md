@@ -8,13 +8,13 @@
 
 ```bash
 cd /Users/wangpeng/Downloads/个人/青岛择校/listen-pick-mvp
-python3 -m http.server 5173
+node server.js
 ```
 
 然后访问：
 
 ```text
-http://localhost:5173
+http://localhost:3004
 ```
 
 ## 文件结构
