@@ -35,10 +35,14 @@ function run(command, args) {
   });
 }
 
+function assetFilePath(assetPath) {
+  return assetPath.split("?")[0];
+}
+
 const queue = [];
 
 for (const scene of scenes) {
-  const output = resolve(scene.image);
+  const output = resolve(assetFilePath(scene.image));
   mkdirSync(dirname(output), { recursive: true });
 
   if (existsSync(output)) {

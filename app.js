@@ -15,7 +15,7 @@ const state = {
 };
 
 const synth = window.speechSynthesis;
-const assetVersion = "20260626-level1-cn-audio-slow";
+const assetVersion = "20260626-level1-3-cn-audio-slow";
 
 function normalizeItems(level) {
   return level.items.map(([sentence, skillTag, answerId, distractorId], index) => ({

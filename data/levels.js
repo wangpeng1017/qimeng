@@ -605,7 +605,7 @@ const basePrompt =
   "Style A realistic modern picturebook illustration for a preschool English listening app. Natural realistic materials, believable child-friendly proportions, soft studio lighting, gentle depth, clear silhouette, warm clean colors, minimal real-world background, centered subject, high readability on tablet screens. When any person appears, make them clearly Chinese or East Asian: black or dark brown hair, East Asian facial features, natural Chinese family look, age-appropriate clothing. Show only the target subject or action. No extra characters, no decorative clutter, no text, no letters, no watermark, no logo. Avoid Caucasian stock-photo look, avoid blonde hair, avoid blue eyes, avoid flat vector style, avoid childish sticker style, avoid anime, avoid busy background, avoid complex storybook scenes, avoid extra animals or people, avoid facial expressions on objects, 1024x1024.";
 
 function img(id) {
-  return `assets/illustrations/${id}.png?v=20260626-level1-cn`;
+  return `assets/illustrations/${id}.png?v=20260626-level1-3-cn`;
 }
 
 function scene(id, word, label, prompt, fallback) {
