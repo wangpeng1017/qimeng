@@ -11,9 +11,12 @@ const genScript = `${process.env.HOME}/.claude/skills/image-gen/gen.py`;
 const size = process.env.IMAGE_SIZE || "1024x1024";
 const limitArg = process.argv.find((arg) => arg.startsWith("--limit="));
 const limit = limitArg ? Number(limitArg.split("=")[1]) : Infinity;
+const onlyArg = process.argv.find((arg) => arg.startsWith("--only="));
+const only = onlyArg ? new Set(onlyArg.split("=")[1].split(",").map((id) => id.trim()).filter(Boolean)) : null;
 
 const scenes = Object.values(global.LISTEN_PICK_SCENES)
   .filter((scene) => scene.image && scene.prompt)
+  .filter((scene) => !only || only.has(scene.id))
   .sort((a, b) => a.id.localeCompare(b.id));
 
 let skipped = 0;

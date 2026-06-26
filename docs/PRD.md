@@ -148,30 +148,33 @@ Listen & Pick 不是单词卡、绘本课、口语课或课堂游戏，而是面
 
 ## 8. 插画风格决策
 
-已生成四种风格对比图，并决定采用：
+已生成四种风格对比图，最新决策采用：
 
-**B 的结构 + C 的柔和质感**
+**A：越真实越好**
 
 内部命名：
 
-**Soft Vector / 柔和矢量风**
+**Style A / Real Picturebook / 写实绘本风**
 
 风格定义：
 
-- 主体像 B 一样清楚、简单、边界明确。
-- 保留 C 的轻微体积感、圆润边缘和软阴影。
-- 背景极简，不做复杂场景。
-- 色彩柔和但不灰，适合 Pad 屏幕。
-- 不做真实照片感。
+- 真实感优先，人物、动物和物品要接近孩子日常能见到的样子。
+- 涉及人物时，默认是中国宝宝、中国孩子、中国妈妈/爸爸，黑发或深棕发，东亚面孔。
+- 保持绘本级温和质感，不做低龄贴纸或扁平矢量。
+- 背景极简，只服务于识别，不做复杂故事场景。
+- 主体居中、轮廓清楚，Pad 上一眼能认出来。
+- 光线柔和，色彩温暖、干净。
 - 不做幼稚贴纸感。
+- 不做动漫感。
 - 物品不拟人化，不加表情。
 - 一张图只表达一个语言点。
 
 统一正向提示词：
 
 ```text
-Soft vector illustration for a preschool English listening app.
-Clean simple shapes, clear silhouette, gentle 3D-like soft shading, subtle rounded edges, calm warm colors, minimal background, centered subject, high readability on tablet screens.
+Style A realistic modern picturebook illustration for a preschool English listening app.
+Natural realistic materials, believable child-friendly proportions, soft studio lighting, gentle depth, clear silhouette, warm clean colors, minimal real-world background, centered subject, high readability on tablet screens.
+When any person appears, make them clearly Chinese or East Asian: black or dark brown hair, East Asian facial features, natural Chinese family look, age-appropriate clothing.
 Show only the target subject or action. No extra characters, no decorative clutter, no text, no letters, no watermark, no logo.
 The image must help a child choose the correct picture after hearing an English word or sentence.
 ```
@@ -179,20 +182,20 @@ The image must help a child choose the correct picture after hearing an English 
 统一负向约束：
 
 ```text
-Avoid realistic photo style, avoid overly childish sticker style, avoid anime, avoid complex storybook scenes, avoid busy background, avoid extra animals or people, avoid facial expressions on objects.
+Avoid Caucasian stock-photo look, avoid blonde hair, avoid blue eyes, avoid flat vector style, avoid childish sticker style, avoid anime, avoid complex storybook scenes, avoid busy background, avoid extra animals or people, avoid facial expressions on objects.
 ```
 
 当前风格投票图：
 
 - `social-output/style-vote/xhs-style-vote.png`
 
-Soft Vector 确认样图：
+Style A 确认样图：
 
-- `assets/style-samples/style-e-soft-vector/apple.png`
-- `assets/style-samples/style-e-soft-vector/girl.png`
-- `assets/style-samples/style-e-soft-vector/cat.png`
-- `assets/style-samples/style-e-soft-vector/red-ball.png`
-- `assets/style-samples/style-e-soft-vector/boy-reads.png`
+- `assets/style-samples/style-a-modern-picturebook/apple.png`
+- `assets/style-samples/style-a-modern-picturebook/girl.png`
+- `assets/style-samples/style-a-modern-picturebook/cat.png`
+- `assets/style-samples/style-a-modern-picturebook/red-ball.png`
+- `assets/style-samples/style-a-modern-picturebook/boy-reads.png`
 
 ## 9. 图片资产计划
 
@@ -207,14 +210,13 @@ Soft Vector 确认样图：
 - 已接入真实图片优先展示。
 - 图片缺失时 fallback 到代码生成的 SVG 占位图，页面不会崩。
 - 正式插画目录当前不保留旧风格散图，避免线上混用。
-- 已生成 5 张 Soft Vector 样图，等待确认后再批量生成正式插画。
+- 已确认采用 Style A 写实绘本风，准备批量生成正式插画。
 
 正式生成策略：
 
-1. 先用 Soft Vector 风格生成 5 张确认样图。
-2. 通过后批量生成 161 个场景。
-3. 对每关抽样目检。
-4. 对最容易混淆的图片做人工复核：颜色、数量、位置、动作。
+1. 使用 Style A 写实绘本风批量生成 161 个场景。
+2. 对每关抽样目检。
+3. 对最容易混淆的图片做人工复核：颜色、数量、位置、动作。
 
 ## 10. 音频资产计划
 
@@ -294,7 +296,7 @@ Soft Vector 确认样图：
 
 ### V0.2 当前阶段
 
-- 确认 Soft Vector 风格样图。
+- 已确认 Style A 写实绘本风。
 - 批量生成 161 张正式插画。
 - 将正式插画接入关卡。
 - 重新部署线上。
@@ -318,7 +320,7 @@ Soft Vector 确认样图：
 
 ## 13. 当前未解决问题
 
-- 正式插画还未按 Soft Vector 全量生成。
+- 正式插画还未按 Style A 写实绘本风全量生成。
 - 完整短句音频还未生成。
 - 儿童端仍有完成页数据文字，后续需要考虑是否隐藏到家长入口。
 - GitHub/词典音频用于商业化前需要做许可复核。
@@ -326,8 +328,8 @@ Soft Vector 确认样图：
 
 ## 14. 下一步
 
-1. 用户确认 5 张 Soft Vector 样图。
-2. 批量生成 161 张正式插画。
+1. 按 Style A 写实绘本风批量生成 161 张正式插画。
+2. 目检关键图片，必要时重生成。
 3. 将正式插画推送 GitHub 并部署到阿里云。
 4. 补短句音频生产方案。
 5. 做 Pad 实机体验检查。

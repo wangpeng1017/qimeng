@@ -156,25 +156,63 @@ p {
 
 .level-card {
   display: grid;
-  min-height: 265px;
-  gap: 16px;
-  align-content: space-between;
-  padding: 22px;
+  grid-template-rows: minmax(178px, 1fr) auto;
+  min-height: 330px;
+  gap: 12px;
+  padding: 12px;
   border: 2px solid var(--line);
   border-radius: 18px;
-  background: #f8fbff;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(45, 96, 150, 0.1);
+}
+
+.level-picture {
+  display: grid;
+  width: 100%;
+  min-height: 190px;
+  place-items: center;
+  overflow: hidden;
+  padding: 6px;
+  border: 0;
+  border-radius: 14px;
+  background: #f7fbff;
+  cursor: pointer;
+}
+
+.level-picture .scene-svg,
+.level-picture .image-scene,
+.level-picture .image-scene img,
+.level-picture .image-scene .fallback-scene {
+  min-height: 0;
+}
+
+.level-picture .scene-svg,
+.level-picture .image-scene {
+  height: 100%;
+}
+
+.level-card-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 12px;
+  padding: 4px 4px 2px;
 }
 
 .level-number {
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   color: var(--blue-dark);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
 }
 
 .level-card h3 {
-  font-size: 32px;
+  overflow: hidden;
+  font-size: 26px;
+  line-height: 1.05;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .level-card p {
@@ -221,6 +259,12 @@ p {
 .primary-action {
   background: var(--coral);
   box-shadow: 0 14px 26px rgba(239, 116, 103, 0.25);
+}
+
+.level-card .primary-action {
+  min-height: 52px;
+  padding: 0 18px;
+  font-size: 20px;
 }
 
 .secondary-action {
@@ -354,6 +398,7 @@ p {
 }
 
 .picture-choice:focus-visible,
+.level-picture:focus-visible,
 .audio-button:focus-visible,
 .quiet-exit:focus-visible,
 .primary-action:focus-visible,
@@ -521,11 +566,14 @@ p {
     padding: 16px 12px 0;
   }
 
-  .band-tabs,
-  .level-grid,
   .choice-grid,
   .result-grid {
     grid-template-columns: 1fr;
+  }
+
+  .band-tabs,
+  .level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .play-topbar {
@@ -538,6 +586,21 @@ p {
 
   .picture-choice {
     min-height: 270px;
+  }
+}
+
+@media (max-width: 640px) {
+  .band-tabs,
+  .level-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .level-card {
+    min-height: 310px;
+  }
+
+  .level-card h3 {
+    font-size: 24px;
   }
 }
 

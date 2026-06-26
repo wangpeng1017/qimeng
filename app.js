@@ -44,6 +44,11 @@ function currentItem() {
   return currentItems()[state.index];
 }
 
+function levelHeroScene(level) {
+  const firstAnswer = level.items?.[0]?.[2];
+  return scenes[firstAnswer] || scenes.girl;
+}
+
 function setScreen(screen) {
   state.screen = screen;
   render();
@@ -141,7 +146,6 @@ function renderHome() {
       <div class="panel-heading">
         <div>
           <h2>前 100 关路径</h2>
-          <p>先做 2 选 1，确认孩子能稳定进入“听声音找画面”的状态。</p>
         </div>
         <strong>当前 Level ${completed}</strong>
       </div>
@@ -158,17 +162,18 @@ function renderHome() {
           .map(
             (level) => `
               <article class="level-card">
-                <div>
-                  <span class="level-number">Level ${level.id}</span>
-                  <h3>${level.title}</h3>
-                  <p>${level.subtitle}</p>
-                </div>
-                <div class="focus-row">
-                  ${level.focus.map((word) => `<span>${word}</span>`).join("")}
-                </div>
-                <button class="primary-action" type="button" onclick="startLevel(${level.id})">
-                  开始 Level ${level.id}
+                <button class="level-picture" type="button" aria-label="开始 Level ${level.id}: ${level.title}" onclick="startLevel(${level.id})">
+                  ${renderScene(levelHeroScene(level))}
                 </button>
+                <div class="level-card-body">
+                  <div>
+                    <span class="level-number">Level ${level.id}</span>
+                    <h3>${level.title}</h3>
+                  </div>
+                  <button class="primary-action" type="button" onclick="startLevel(${level.id})">
+                    开始
+                  </button>
+                </div>
               </article>
             `
           )
