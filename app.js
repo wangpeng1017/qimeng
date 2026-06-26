@@ -22,7 +22,7 @@ function normalizeItems(level) {
     id: `${level.id}-${index + 1}`,
     sentence,
     skillTag,
-    audio: `assets/audio/sentences/level-${level.id}/${String(index + 1).padStart(2, "0")}.mp3?v=${assetVersion}`,
+    audio: `audio/sentences/level-${level.id}/${String(index + 1).padStart(2, "0")}?v=${assetVersion}`,
     answerId,
     choices: shuffle([
       { id: answerId, scene: scenes[answerId] },

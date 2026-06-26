@@ -37,6 +37,32 @@ function resolveFile(urlPath) {
 }
 
 const server = http.createServer((req, res) => {
+  const cleanPath = decodeURIComponent((req.url || "/").split("?")[0]);
+  const sentenceAudioMatch = cleanPath.match(/^\/audio\/sentences\/level-(\d+)\/(\d{2})$/);
+
+  if (sentenceAudioMatch) {
+    const [, levelId, itemId] = sentenceAudioMatch;
+    const filePath = path.join(root, "assets", "audio", "sentences", `level-${levelId}`, `${itemId}.mp3`);
+
+    if (!filePath.startsWith(root) || !fs.existsSync(filePath)) {
+      send(res, 404, "Not found", { "Content-Type": "text/plain; charset=utf-8" });
+      return;
+    }
+
+    fs.readFile(filePath, (error, content) => {
+      if (error) {
+        send(res, 500, "Server error", { "Content-Type": "text/plain; charset=utf-8" });
+        return;
+      }
+
+      send(res, 200, content, {
+        "Content-Type": "audio/mpeg",
+        "Cache-Control": "public, max-age=604800"
+      });
+    });
+    return;
+  }
+
   const filePath = resolveFile(req.url || "/");
   if (!filePath) {
     send(res, 404, "Not found", { "Content-Type": "text/plain; charset=utf-8" });
