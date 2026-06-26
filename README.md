@@ -4,10 +4,12 @@
 
 这是一个面向 PC/Pad 浏览器的英语启蒙 MVP：听一句英语短句，从两张图里选出匹配图片，答对后自动进入下一题。
 
+当前线上地址：`http://8.130.182.148:3333/`
+
 ## 本地运行
 
 ```bash
-cd /Users/wangpeng/Downloads/个人/青岛择校/listen-pick-mvp
+cd /Users/wangpeng/GitHub/qimeng
 node server.js
 ```
 
@@ -17,15 +19,42 @@ node server.js
 http://localhost:3333
 ```
 
+也可以直接执行：
+
+```bash
+npm start
+```
+
+## 当前状态
+
+- 已完成 Level 1-10 内容扩充。
+- 已完成 Level 1-3 正式插画接入。
+- 已完成 Level 1-3 慢速清晰短句 MP3 接入。
+- 前端优先加载 `assets/illustrations-webp/` 中的 WebP 压缩图，弱网下加载更快。
+- 浏览器 Web Speech API 仅作为短句音频缺失时的 fallback。
+
 ## 文件结构
 
 ```text
-listen-pick-mvp/
+qimeng/
 ├── index.html
 ├── styles.css
 ├── app.js
+├── server.js
+├── assets/
+│   ├── audio/
+│   ├── illustrations/
+│   ├── illustrations-webp/
+│   └── style-samples/
 ├── data/
-│   └── levels.js
+│   ├── levels.js
+│   └── audio-sources.json
+├── docs/
+│   └── PRD.md
+├── scripts/
+│   ├── generate-illustrations.mjs
+│   ├── generate-sentence-audio.mjs
+│   └── optimize-illustrations.mjs
 └── DEVELOPMENT_PLAN.md
 ```
 
@@ -46,4 +75,10 @@ listen-pick-mvp/
 - 第 3 项：正确图片场景 ID。
 - 第 4 项：干扰图片场景 ID。
 
-后续替换正式插画时，可以把 `scene` 改成图片 URL 或加 `image` 字段。
+当前图片字段已经接入正式资源：
+
+- `scene.image`：WebP 优化图。
+- `scene.fallbackImage`：PNG 源图兜底。
+- `scene.sourceImage`：供生成脚本复用的源图路径。
+
+产品和资产规划见 [docs/PRD.md](/Users/wangpeng/GitHub/qimeng/docs/PRD.md)。
