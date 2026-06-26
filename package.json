@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "generate:images": "node scripts/generate-illustrations.mjs",
-    "fetch:audio": "node scripts/fetch-word-audio.mjs"
+    "fetch:audio": "node scripts/fetch-word-audio.mjs",
+    "generate:audio": "node scripts/generate-sentence-audio.mjs"
   }
 }

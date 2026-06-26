@@ -255,7 +255,7 @@ Style A 确认样图：
 
 短句音频方案：
 
-1. Level 1 已生成固定 MP3 短句音频：`assets/audio/sentences/level-1/01.mp3` 到 `15.mp3`。
+1. Level 1 已生成慢速清晰版固定 MP3 短句音频：`assets/audio/sentences/level-1/01.mp3` 到 `15.mp3`。
 2. 页面优先播放固定短句音频，浏览器 Web Speech API 只作为 fallback。
 3. 商业化阶段：考虑真人录制或固定高质量 TTS 声线。
 
@@ -272,6 +272,7 @@ Style A 确认样图：
 脚本：
 
 - `npm run fetch:audio`：下载并记录单词音频。
+- `npm run generate:audio`：生成指定 Level 的短句音频，支持 `RATE`、`TEMPO`、`VOICE`。
 - `npm run generate:images`：按场景批量生成插画。
 - `npm start`：启动静态服务。
 

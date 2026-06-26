@@ -16,7 +16,7 @@
 - 不做登录、不做后台、不做复杂会员。
 - 内容先放在本地数据文件，方便快速迭代。
 - 单词音频已下载到 `assets/audio/words/`，来源记录在 `data/audio-sources.json`。
-- Level 1 短句音频已生成固定 MP3，浏览器 Web Speech API 仅作为 fallback。
+- Level 1 短句音频已生成慢速清晰版固定 MP3，浏览器 Web Speech API 仅作为 fallback。
 - 每关 15 题，每题 2 张图，答对自动下一题。
 
 ## 技术方案
