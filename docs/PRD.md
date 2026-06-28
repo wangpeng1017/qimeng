@@ -128,7 +128,7 @@ Listen & Pick 不是单词卡、绘本课、口语课或课堂游戏，而是面
 
 示例：
 
-- `A red ball.` vs `A blue ball.` 测颜色。
+- `A red flower.` vs `A blue flower.` 测颜色。
 - `The cat is on the chair.` vs `The cat is under the chair.` 测位置。
 - `Two apples.` vs `Three apples.` 测数量。
 - `The boy runs.` vs `The boy jumps.` 测动作。
@@ -168,6 +168,7 @@ Listen & Pick 不是单词卡、绘本课、口语课或课堂游戏，而是面
 - 不做动漫感。
 - 物品不拟人化，不加表情。
 - 一张图只表达一个语言点。
+- 可以做低干扰文化融合：用中式庭院、窗棂、青瓷器物等画面气质呼应孩子喜欢的四大名著，但不直接加入复杂角色或故事线，避免干扰听力判断。
 
 统一正向提示词：
 
@@ -213,7 +214,8 @@ Style A 确认样图：
 - 前端优先加载 768px WebP 优化图，PNG 源图作为兼容兜底。
 - 图片缺失时 fallback 到代码生成的 SVG 占位图，页面不会崩。
 - 正式插画目录当前不保留旧风格散图，避免线上混用。
-- Level 1-3 已按 Style A 写实绘本风生成正式插画。
+- Level 1-6 已按 Style A 写实绘本风生成正式插画。
+- Level 4 颜色关已改成红/蓝/黄/绿花，画面带轻微中式古典绘本氛围。
 - 剩余 Level 仍待继续批量生成正式插画。
 
 正式生成策略：
@@ -259,7 +261,7 @@ Style A 确认样图：
 
 短句音频方案：
 
-1. Level 1-3 已生成慢速清晰版固定 MP3 短句音频：`assets/audio/sentences/level-<n>/01.mp3` 到 `15.mp3`。
+1. Level 1-6 已生成慢速清晰版固定 MP3 短句音频：`assets/audio/sentences/level-<n>/01.mp3` 到 `15.mp3`。
 2. 页面优先播放固定短句音频，浏览器 Web Speech API 只作为 fallback。
 3. 商业化阶段：考虑真人录制或固定高质量 TTS 声线。
 
@@ -303,7 +305,7 @@ Style A 确认样图：
 ### V0.2 当前阶段
 
 - 已确认 Style A 写实绘本风。
-- Level 1-3 正式插画已生成并接入关卡。
+- Level 1-6 正式插画已生成并接入关卡。
 - 已完成正式插画 WebP 压缩接入，线上优先加载优化图。
 - 已重新部署线上并完成家庭验证。
 - 用 Pad 检查首屏、答题页和完成页。
@@ -326,8 +328,8 @@ Style A 确认样图：
 
 ## 13. 当前未解决问题
 
-- Level 1-3 正式插画已生成，剩余 Level 还未按 Style A 写实绘本风全量生成。
-- Level 1-3 短句音频已生成，剩余 Level 的完整短句音频还未生成。
+- Level 1-6 正式插画已生成，剩余 Level 还未按 Style A 写实绘本风全量生成。
+- Level 1-6 短句音频已生成，剩余 Level 的完整短句音频还未生成。
 - 儿童端仍有完成页数据文字，后续需要考虑是否隐藏到家长入口。
 - GitHub/词典音频用于商业化前需要做许可复核。
 - 目前没有登录和云端进度。

@@ -78,21 +78,21 @@ window.LISTEN_PICK_LEVELS = [
     subtitle: "red / blue / yellow / green",
     focus: ["red", "blue", "yellow", "green"],
     items: [
-      ["A red ball.", "color", "red-ball", "blue-ball"],
-      ["A blue ball.", "color", "blue-ball", "red-ball"],
-      ["A yellow ball.", "color", "yellow-ball", "green-ball"],
-      ["A green ball.", "color", "green-ball", "yellow-ball"],
-      ["The red car.", "color", "red-car", "blue-car"],
-      ["The blue car.", "color", "blue-car", "red-car"],
-      ["The yellow car.", "color", "yellow-car", "green-car"],
-      ["The green car.", "color", "green-car", "yellow-car"],
-      ["A red bag.", "color", "red-bag", "blue-bag"],
-      ["A blue bag.", "color", "blue-bag", "red-bag"],
-      ["A yellow cup.", "color", "yellow-cup", "green-cup"],
-      ["A green cup.", "color", "green-cup", "yellow-cup"],
-      ["I see a red ball.", "color", "red-ball", "green-ball"],
-      ["I see a blue car.", "color", "blue-car", "yellow-car"],
-      ["I see a yellow bag.", "color", "yellow-bag", "blue-bag"]
+      ["A red flower.", "color", "red-flower", "blue-flower"],
+      ["A blue flower.", "color", "blue-flower", "red-flower"],
+      ["A yellow flower.", "color", "yellow-flower", "green-flower"],
+      ["A green flower.", "color", "green-flower", "yellow-flower"],
+      ["The red flower.", "color", "red-flower", "yellow-flower"],
+      ["The blue flower.", "color", "blue-flower", "green-flower"],
+      ["The yellow flower.", "color", "yellow-flower", "red-flower"],
+      ["The green flower.", "color", "green-flower", "blue-flower"],
+      ["I see a red flower.", "color", "red-flower", "green-flower"],
+      ["I see a blue flower.", "color", "blue-flower", "yellow-flower"],
+      ["I see a yellow flower.", "color", "yellow-flower", "blue-flower"],
+      ["I see a green flower.", "color", "green-flower", "red-flower"],
+      ["A red flower.", "color", "red-flower", "green-flower"],
+      ["A blue flower.", "color", "blue-flower", "yellow-flower"],
+      ["A yellow flower.", "color", "yellow-flower", "red-flower"]
     ]
   },
   {
@@ -605,7 +605,7 @@ const basePrompt =
   "Style A realistic modern picturebook illustration for a preschool English listening app. Natural realistic materials, believable child-friendly proportions, soft studio lighting, gentle depth, clear silhouette, warm clean colors, minimal real-world background, centered subject, high readability on tablet screens. When any person appears, make them clearly Chinese or East Asian: black or dark brown hair, East Asian facial features, natural Chinese family look, age-appropriate clothing. Show only the target subject or action. No extra characters, no decorative clutter, no text, no letters, no watermark, no logo. Avoid Caucasian stock-photo look, avoid blonde hair, avoid blue eyes, avoid flat vector style, avoid childish sticker style, avoid anime, avoid busy background, avoid complex storybook scenes, avoid extra animals or people, avoid facial expressions on objects, 1024x1024.";
 
 function img(id) {
-  return `assets/illustrations-webp/${id}.webp?v=20260626-level1-3-webp`;
+  return `assets/illustrations-webp/${id}.webp?v=20260628-level1-6-webp`;
 }
 
 function sourceImg(id) {
@@ -613,7 +613,7 @@ function sourceImg(id) {
 }
 
 function fallbackImg(id) {
-  return `${sourceImg(id)}?v=20260626-level1-3-cn`;
+  return `${sourceImg(id)}?v=20260628-level1-6-cn`;
 }
 
 function scene(id, word, label, prompt, fallback) {
@@ -677,6 +677,10 @@ window.LISTEN_PICK_SCENES = {
   "yellow-bag": scene("yellow-bag", "yellow", "yellow bag", "One yellow school bag only.", { type: "object", object: "bag", color: "#ffd45f" }),
   "yellow-cup": scene("yellow-cup", "yellow", "yellow cup", "One yellow cup only.", { type: "object", object: "bag", color: "#ffd45f" }),
   "green-cup": scene("green-cup", "green", "green cup", "One green cup only.", { type: "object", object: "bag", color: "#67c587" }),
+  "red-flower": scene("red-flower", "red", "red flower", "One realistic red flower only, simple stem and leaves, in a quiet Chinese classical garden picturebook setting with a subtle wooden window lattice or ceramic pot. Keep the red petals as the only strong color cue.", { type: "object", object: "flower", color: "#ef6f61" }),
+  "blue-flower": scene("blue-flower", "blue", "blue flower", "One realistic blue flower only, simple stem and leaves, in a quiet Chinese classical garden picturebook setting with a subtle wooden window lattice or ceramic pot. Keep the blue petals as the only strong color cue.", { type: "object", object: "flower", color: "#4d8ee8" }),
+  "yellow-flower": scene("yellow-flower", "yellow", "yellow flower", "One realistic yellow flower only, simple stem and leaves, in a quiet Chinese classical garden picturebook setting with a subtle wooden window lattice or ceramic pot. Keep the yellow petals as the only strong color cue.", { type: "object", object: "flower", color: "#ffd45f" }),
+  "green-flower": scene("green-flower", "green", "green flower", "One realistic green flower only, simple stem and leaves, in a quiet Chinese classical garden picturebook setting with a subtle wooden window lattice or ceramic pot. The petals must be green, not just the leaves, and the green petals must be the only strong color cue.", { type: "object", object: "flower", color: "#67c587" }),
 
   "big-dog": scene("big-dog", "big", "big dog", "One large brown dog next to a small reference mat.", { type: "animal", animal: "dog", action: "run", color: "#9b6b43" }),
   "small-dog": scene("small-dog", "small", "small dog", "One small brown dog next to a large reference mat.", { type: "animal", animal: "dog", action: "run", color: "#9b6b43" }),
