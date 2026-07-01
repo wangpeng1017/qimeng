@@ -28,8 +28,8 @@ npm start
 ## 当前状态
 
 - 已完成 Level 1-10 内容扩充。
-- 已完成 Level 1-6 正式插画接入。
-- 已完成 Level 1-6 慢速清晰短句 MP3 接入。
+- 已完成 Level 1-9 正式插画接入。
+- 已完成 Level 1-9 慢速清晰短句 MP3 接入。
 - Level 4 颜色关已改成红/蓝/黄/绿花，画面带轻微中式古典绘本氛围。
 - 前端优先加载 `assets/illustrations-webp/` 中的 WebP 压缩图，弱网下加载更快。
 - 浏览器 Web Speech API 仅作为短句音频缺失时的 fallback。
