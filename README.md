@@ -33,6 +33,7 @@ npm start
 - Level 4 颜色关已改成红/蓝/黄/绿花，画面带轻微中式古典绘本氛围。
 - 前端优先加载 `assets/illustrations-webp/` 中的 WebP 压缩图，弱网下加载更快。
 - 浏览器 Web Speech API 仅作为短句音频缺失时的 fallback。
+- 答题页已增加 `中文` / `EN` 标签开关，默认关闭，家长可临时打开辅助理解。
 
 ## 文件结构
 

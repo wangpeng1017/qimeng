@@ -289,7 +289,7 @@ p {
 
 .play-topbar {
   display: grid;
-  grid-template-columns: 62px auto minmax(250px, 360px);
+  grid-template-columns: 62px auto minmax(250px, 360px) auto;
   align-items: center;
   gap: 18px;
   min-height: 72px;
@@ -354,6 +354,31 @@ p {
   transition: width 240ms ease;
 }
 
+.caption-toggles {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+
+.label-toggle {
+  min-width: 78px;
+  min-height: 52px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--blue-dark);
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 900;
+  box-shadow: var(--shadow);
+}
+
+.label-toggle.is-active {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #fff;
+}
+
 .listen-area {
   display: grid;
   place-items: center;
@@ -386,6 +411,7 @@ p {
 }
 
 .picture-choice {
+  position: relative;
   display: grid;
   min-height: min(48svh, 460px);
   padding: 16px;
@@ -397,10 +423,35 @@ p {
   transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
 }
 
+.choice-caption {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  display: grid;
+  gap: 4px;
+  padding: 10px 14px;
+  border: 2px solid rgba(216, 231, 245, 0.9);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  pointer-events: none;
+  text-align: center;
+  box-shadow: 0 10px 26px rgba(45, 96, 150, 0.12);
+}
+
+.choice-caption span {
+  overflow-wrap: anywhere;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.08;
+}
+
 .picture-choice:focus-visible,
 .level-picture:focus-visible,
 .audio-button:focus-visible,
 .quiet-exit:focus-visible,
+.label-toggle:focus-visible,
 .primary-action:focus-visible,
 .secondary-action:focus-visible,
 .band-tab:focus-visible {
@@ -586,12 +637,21 @@ p {
     grid-template-columns: 58px auto;
   }
 
-  .progress-wrap {
+  .progress-wrap,
+  .caption-toggles {
     grid-column: 1 / -1;
+  }
+
+  .caption-toggles {
+    justify-content: center;
   }
 
   .picture-choice {
     min-height: 270px;
+  }
+
+  .choice-caption span {
+    font-size: 21px;
   }
 }
 

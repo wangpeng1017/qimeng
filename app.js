@@ -5,17 +5,20 @@ const scenes = window.LISTEN_PICK_SCENES;
 const state = {
   screen: "home",
   levelId: 1,
+  items: [],
   index: 0,
   attempts: {},
   misses: [],
   locked: false,
   startedAt: 0,
   responseTimes: [],
-  audio: null
+  audio: null,
+  showChinese: getStoredFlag("listenPick:showChinese"),
+  showEnglish: getStoredFlag("listenPick:showEnglish")
 };
 
 const synth = window.speechSynthesis;
-const assetVersion = "20260701-level1-9-cn-audio-slow";
+const assetVersion = "20260702-caption-toggle";
 
 function normalizeItems(level) {
   return level.items.map(([sentence, skillTag, answerId, distractorId], index) => ({
@@ -40,6 +43,7 @@ function currentLevel() {
 }
 
 function currentItems() {
+  if (state.items.length) return state.items;
   return normalizeItems(currentLevel());
 }
 
@@ -55,6 +59,30 @@ function levelHeroScene(level) {
 function setScreen(screen) {
   state.screen = screen;
   render();
+}
+
+function toggleCaption(type) {
+  if (type === "zh") state.showChinese = !state.showChinese;
+  if (type === "en") state.showEnglish = !state.showEnglish;
+  setStoredFlag("listenPick:showChinese", state.showChinese);
+  setStoredFlag("listenPick:showEnglish", state.showEnglish);
+  render();
+}
+
+function getStoredFlag(key) {
+  try {
+    return localStorage.getItem(key) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function setStoredFlag(key, value) {
+  try {
+    localStorage.setItem(key, value ? "1" : "0");
+  } catch {
+    // localStorage can be unavailable in private or embedded browsers.
+  }
 }
 
 function speak(text, rate = 0.86) {
@@ -78,6 +106,7 @@ function stopAudio() {
 function startLevel(levelId) {
   stopAudio();
   state.levelId = levelId;
+  state.items = normalizeItems(currentLevel());
   state.index = 0;
   state.attempts = {};
   state.misses = [];
@@ -138,6 +167,7 @@ function markChoice(choiceId, status) {
 
 function exitToHome() {
   stopAudio();
+  state.items = [];
   history.replaceState(null, "", location.pathname);
   setScreen("home");
 }
@@ -216,6 +246,10 @@ function renderPlay() {
         <span>${state.index + 1} / ${total}</span>
         <div class="progress-track"><i style="width:${progress}%"></i></div>
       </div>
+      <div class="caption-toggles" aria-label="文字显示开关">
+        <button class="label-toggle ${state.showChinese ? "is-active" : ""}" type="button" aria-pressed="${state.showChinese}" title="显示汉语" onclick="toggleCaption('zh')">中文</button>
+        <button class="label-toggle ${state.showEnglish ? "is-active" : ""}" type="button" aria-pressed="${state.showEnglish}" title="显示英语" onclick="toggleCaption('en')">EN</button>
+      </div>
     </section>
 
     <section class="listen-area">
@@ -230,6 +264,7 @@ function renderPlay() {
           (choice) => `
             <button class="picture-choice" type="button" data-choice="${choice.id}" onclick="choose('${choice.id}')">
               ${renderScene(choice.scene)}
+              ${renderChoiceCaption(choice)}
             </button>
           `
         )
@@ -282,6 +317,229 @@ function renderFinish() {
       </div>
     </section>
   `;
+}
+
+const zhWordMap = {
+  girl: "女孩",
+  boy: "男孩",
+  baby: "宝宝",
+  mom: "妈妈",
+  dad: "爸爸",
+  cat: "猫",
+  dog: "狗",
+  bird: "鸟",
+  fish: "鱼",
+  rabbit: "兔子",
+  ball: "球",
+  book: "书",
+  bag: "书包",
+  cup: "杯子",
+  toy: "玩具",
+  car: "小车",
+  flower: "花",
+  hand: "手",
+  head: "头",
+  eyes: "眼睛",
+  eye: "眼睛",
+  hat: "帽子",
+  shoes: "鞋子",
+  shoe: "鞋子",
+  shirt: "上衣",
+  bed: "床",
+  chair: "椅子",
+  table: "桌子",
+  door: "门",
+  window: "窗户",
+  lamp: "台灯",
+  apple: "苹果",
+  banana: "香蕉",
+  milk: "牛奶",
+  water: "水",
+  egg: "鸡蛋",
+  bread: "面包",
+  house: "房子",
+  school: "学校",
+  park: "公园",
+  tree: "树",
+  sun: "太阳",
+  moon: "月亮",
+  rocket: "火箭",
+  planet: "星球",
+  star: "星星",
+  helmet: "头盔",
+  flag: "旗子",
+  astronaut: "太空小朋友"
+};
+
+const zhPhraseMap = {
+  "girl shows hand": "女孩伸出手",
+  "boy touches head": "男孩摸头",
+  "girl head": "女孩摸头",
+  "boy head": "男孩摸头",
+  "bird in tree": "鸟在树上",
+  "fish in bowl": "鱼在碗里",
+  "rabbit with carrot": "兔子和胡萝卜"
+};
+
+const zhColorMap = {
+  red: "红色",
+  blue: "蓝色",
+  yellow: "黄色",
+  green: "绿色",
+  white: "白色"
+};
+
+const zhNumberMap = {
+  one: "一个",
+  two: "两个",
+  three: "三个",
+  four: "四个",
+  five: "五个"
+};
+
+const zhAdjectiveMap = {
+  big: "大",
+  small: "小",
+  happy: "开心",
+  sad: "难过",
+  sleeping: "睡觉",
+  running: "跑步",
+  jumping: "跳跃"
+};
+
+const zhVerbMap = {
+  runs: "跑步",
+  jumps: "跳跃",
+  sleeps: "睡觉",
+  reads: "读书",
+  eats: "吃",
+  drinks: "喝"
+};
+
+const sceneZhLabels = {
+  "space-red-rocket": "红色火箭",
+  "space-blue-rocket": "蓝色火箭",
+  "space-yellow-star": "黄色星星",
+  "space-blue-star": "蓝色星星",
+  "space-white-star": "白色星星",
+  "space-red-planet": "红色星球",
+  "space-blue-planet": "蓝色星球",
+  "space-green-planet": "绿色星球",
+  "space-yellow-planet": "黄色星球",
+  "space-red-helmet": "红色头盔",
+  "space-blue-helmet": "蓝色头盔",
+  "space-red-flag": "红色旗子",
+  "space-green-flag": "绿色旗子",
+  "space-white-moon": "白色月亮",
+  "space-yellow-moon": "黄色月亮",
+  "space-boy-runs": "男孩跑步",
+  "space-boy-jumps": "男孩跳跃",
+  "space-girl-runs": "女孩跑步",
+  "space-girl-jumps": "女孩跳跃",
+  "space-boy-sits": "男孩坐下",
+  "space-boy-stands": "男孩站着",
+  "space-girl-sits": "女孩坐下",
+  "space-girl-stands": "女孩站着",
+  "space-boy-waves": "男孩挥手",
+  "space-girl-waves": "女孩挥手",
+  "space-boy-reads": "男孩读书",
+  "space-girl-reads": "女孩读书",
+  "space-boy-eats": "男孩吃东西",
+  "space-boy-drinks": "男孩喝水",
+  "space-girl-eats": "女孩吃东西",
+  "space-girl-drinks": "女孩喝水",
+  "space-boy-sleeps": "男孩睡觉",
+  "space-girl-sleeps": "女孩睡觉",
+  "space-rocket-on-table": "火箭在桌子上",
+  "space-rocket-under-table": "火箭在桌子下",
+  "space-star-on-table": "星星在桌子上",
+  "space-star-under-table": "星星在桌子下",
+  "space-helmet-on-chair": "头盔在椅子上",
+  "space-helmet-under-chair": "头盔在椅子下",
+  "space-boy-in-rocket": "男孩在火箭里",
+  "space-boy-by-rocket": "男孩在火箭旁",
+  "space-girl-in-rocket": "女孩在火箭里",
+  "space-girl-by-rocket": "女孩在火箭旁",
+  "space-moon-in-window": "月亮在窗户里",
+  "space-star-in-window": "星星在窗户里",
+  "space-planet-by-rocket": "星球在火箭旁",
+  "space-flag-by-rocket": "旗子在火箭旁",
+  "space-flag-on-moon": "旗子在月亮上"
+};
+
+function renderChoiceCaption(choice) {
+  if (!state.showChinese && !state.showEnglish) return "";
+  const lines = [];
+  if (state.showEnglish) lines.push(`<span lang="en">${escapeHtml(choiceEnglishLabel(choice.scene))}</span>`);
+  if (state.showChinese) lines.push(`<span lang="zh-CN">${escapeHtml(choiceChineseLabel(choice.scene))}</span>`);
+  return `<div class="choice-caption">${lines.join("")}</div>`;
+}
+
+function choiceEnglishLabel(scene) {
+  return scene?.label || scene?.word || "";
+}
+
+function choiceChineseLabel(scene) {
+  if (!scene) return "";
+  if (sceneZhLabels[scene.id]) return sceneZhLabels[scene.id];
+  return translateLabel(scene.label || scene.word || "");
+}
+
+function translateLabel(label) {
+  const key = String(label || "").toLowerCase().trim();
+  if (zhPhraseMap[key]) return zhPhraseMap[key];
+
+  let match = key.match(/^(one|two|three|four|five) (.+)$/);
+  if (match) return `${zhNumberMap[match[1]]}${translateNoun(match[2])}`;
+
+  match = key.match(/^(red|blue|yellow|green|white) (.+)$/);
+  if (match) return `${zhColorMap[match[1]]}${translateNoun(match[2])}`;
+
+  match = key.match(/^(.+) with (.+)$/);
+  if (match) return `${translateNoun(match[1])}和${translateNoun(match[2])}`;
+
+  match = key.match(/^(.+) on (.+)$/);
+  if (match) return `${translateNoun(match[1])}在${translateNoun(match[2])}上`;
+
+  match = key.match(/^(.+) under (.+)$/);
+  if (match) return `${translateNoun(match[1])}在${translateNoun(match[2])}下`;
+
+  match = key.match(/^(.+) in (.+)$/);
+  if (match) return `${translateNoun(match[1])}在${translateNoun(match[2])}里`;
+
+  match = key.match(/^(.+) by (.+)$/);
+  if (match) return `${translateNoun(match[1])}在${translateNoun(match[2])}旁边`;
+
+  match = key.match(/^(.+) at (.+)$/);
+  if (match) return `${translateNoun(match[1])}在${translateNoun(match[2])}旁`;
+
+  match = key.match(/^(.+) (runs|jumps|sleeps|reads)$/);
+  if (match) return `${translateNoun(match[1])}${zhVerbMap[match[2]]}`;
+
+  match = key.match(/^(.+) (eats|drinks) (.+)$/);
+  if (match) return `${translateNoun(match[1])}${zhVerbMap[match[2]]}${translateNoun(match[3])}`;
+
+  match = key.match(/^(happy|sad|sleeping|running|jumping) (.+)$/);
+  if (match) return `${zhAdjectiveMap[match[1]]}的${translateNoun(match[2])}`;
+
+  return key
+    .split(/\s+/)
+    .map((part) => zhWordMap[part] || part)
+    .join("");
+}
+
+function translateNoun(text) {
+  const key = String(text || "").toLowerCase().trim().replace(/s$/, "");
+  return zhPhraseMap[key] || zhWordMap[key] || key;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
 }
 
 function renderScene(scene) {
